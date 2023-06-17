@@ -15,6 +15,13 @@
         <div class="col-12 mt-3 mb-3">
         <h1 class="text-white text-center">¡Scanner Productos !</h1>
 
+        <form action="{{ route('products.import') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="file" name="file" class="form-control">
+            <br>
+            <button class="btn btn-success">Importar Products</button>
+        </form>
+
         <div class="col-12" style="padding: 0!important;">
             <div class="d-flex justify-content-center mt-5 mb-5">
 

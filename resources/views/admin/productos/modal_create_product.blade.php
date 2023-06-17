@@ -60,13 +60,9 @@
                     </div>
 
                     <div class="col-6 form-group ">
-                        <label for="" class="form-control-label label_form_custom">Precio </label>
+                        <label for="" class="form-control-label label_form_custom">Categoria </label>
                         <div class="input-group input-group-alternative mb-4">
-                        <span class="input-group-text">
-                            <img class="img_icon_form " style="width: 30px;" src="{{ asset('assets/admin/img/icons/dolar.png') }}" alt="">
-                        </span>
-
-                        <input class="form-control" type="number"  id="regular_price" name="regular_price" >
+                        <input class="form-control" type="number"  id="categoria" name="categoria" >
                         </div>
                     </div>
 
@@ -87,7 +83,11 @@
                     <div class="col-6 form-group ">
                         <label for="" class="form-control-label label_form_custom">Costo </label>
                         <div class="input-group input-group-alternative mb-4">
-                        <input class="form-control" type="number"  id="costo" name="costo" >
+                            <span class="input-group-text">
+                                <img class="img_icon_form " style="width: 30px;" src="{{ asset('assets/admin/img/icons/dolar.png') }}" alt="">
+                            </span>
+
+                            <input class="form-control" type="number"  id="costo" name="costo" >
                         </div>
                     </div>
 

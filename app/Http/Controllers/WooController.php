@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\ProductosImport;
 use Illuminate\Http\Request;
 
 use Codexshaper\WooCommerce\Facades\WooCommerce;
@@ -9,6 +10,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Codexshaper\WooCommerce\Facades\Product;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\Facades\Image;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Str;
 use Session;
@@ -298,5 +300,12 @@ class WooController extends Controller
          Alert::success('Producto creado', 'Se ha guardado con exito');
          return redirect()->back();
 
+    }
+
+    public function import_products(Request $request)
+    {
+        Excel::import(new ProductosImport,request()->file('file'));
+
+        return redirect()->back()->with('success', 'Creado con exito');
     }
 }
