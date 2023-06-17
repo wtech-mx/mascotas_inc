@@ -1,0 +1,30 @@
+.dashboard{
+    background: #007EA7;
+}
+
+.servicios{
+    background: #003249;
+}
+
+
+.btn_bg_primario{
+    background: #003249;
+    border-radius: 13px;
+    padding: 16px 10px 16px 10px;
+}
+
+.btn_border_primario{
+    border: solid 3px #80CED7!important;
+    margin-bottom: 0rem!important;
+    color: #FFFFFF!important;
+    border-radius: 13px!important;
+    padding: 16px 10px 16px 10px;
+}
+
+.btn_img_icon{
+    width: 50px;
+}
+
+.btn_img_icon_plus{
+    width: 35px;
+}

@@ -1,0 +1,119 @@
+.table td, .table th {
+    white-space: revert!important;
+    }
+
+    .select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: 0px solid transparent !important;
+    border-radius: 0px!important;
+    padding: 22px;
+}
+
+    .select2 {
+        width: 380px!important;
+    }
+
+    .content_qr{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content_qr2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #reader {
+        width: 400px;
+    }
+
+    #reader_product{
+        width: 400px;
+    }
+
+    #result {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    #result_product{
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .container_request_qr{
+        background: #80CED7;
+        padding: 10px;
+        border-radius: 0 0 19px 19px;
+    }
+
+    .no_aparece {
+        display: none !important;
+    }
+
+    .container_request_qr_product{
+        background: #80CED7;
+        padding: 10px;
+        border-radius: 19px;
+    }
+
+    .respuesta_qr_info{
+        text-align: left;
+        color: #003249;
+        margin-bottom: 10px;
+    }
+
+    .strong_qr_res{
+        color: #003249;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    .btn_servicio{
+        background: #fff;
+        border-radius: 19px;
+        padding: 10px 25px 10px 25px;
+        margin-right: 1rem;
+        margin-left: 1rem;
+    }
+
+    .btn_servicio_p{
+        background: #80CED7;
+        color: #fff;
+        border-radius: 19px!important;
+        padding: 10px 25px 10px 25px;
+    }
+
+    .accordion-item:first-of-type .accordion-button {
+        background: #80CED7;
+        border-radius: 19px;
+        color: #fff;
+        text-align: center;
+    }
+
+    .accordion-item:last-of-type .accordion-button.collapsed {
+        background: #fff;
+        color: #80CED7;
+        border-radius: 19px!important;
+    }
+
+    .accordion .accordion-button {
+        font-size: inherit !important;
+        background: #fff!important;;
+        color: #80CED7!important;;
+        border-radius: 19px!important;
+    }
+
+    .img_acrdion{
+        width: 50px;
+        margin-left: 1rem;
+    }
+
+    .btn_save_scanner{
+        background: #fff;
+        color: #000;
+        border-radius: 19px;
+        padding: 10px 20px 10px 20px;
+    }
