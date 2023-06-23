@@ -5,6 +5,7 @@ namespace App\Imports;
 use App\Models\Productos;
 use Codexshaper\WooCommerce\Facades\Product;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 use Maatwebsite\Excel\Concerns\WithUpserts;
@@ -27,34 +28,44 @@ class ProductosImport implements ToModel, WithHeadingRow,WithUpserts{
     public function model(array $row)
     {
 
+        $nombreImagen = $row['foto'];
+        $nombreImagen = str_replace(' ', '-', $nombreImagen);
+        $ruta = "http://mascotasinc.com.mx/wp-content/uploads/2023/06/" . $nombreImagen;
+        $fechaActual = Carbon::now()->toDateTimeString();
+        dd($ruta);
         $code = Str::random(4);
         $producto = new Productos([
-            'nombre' => $row['nombre'],
+            'nombre' => $row['descripcion'],
             'descripcion' => $row['descripcion'],
             'sku' => $code,
-            'stock' => 100,
+            'stock' => $row['unidades'],
             'categoria' => $row['categoria'],
             'subcategoria' => $row['subcategoria'],
-            'precio_normal' => $row['costo'],
             'iva' => $row['iva'],
             'margen' => $row['margen'],
             'utilidad' => $row['utilidad'],
-            'costo_fijo' => $row['costo_fijo'],
+            'costo_fijo' => $row['costo_variable'],
             'subtotal' => $row['subtotal'],
-            'iva_pa' => $row['iva_pa'],
+            'iva_pa' => $row['iva'],
             'total' => $row['total'],
+            'imagen' => $row['foto'],
         ]);
 
         $data = [
-            'name' => $row['nombre'],
+            'name' => $row['descripcion'],
             'type' => 'simple',
             'price' => number_format(floatval($row['total'])),
             'regular_price' => number_format(floatval($row['total'])),
             'sku' => $code,
             "manage_stock" => true,
-            'stock_quantity' => 100,
+            'stock_quantity' => $row['unidades'],
             'description' => $row['descripcion'],
             'short_description' => $row['descripcion'],
+            'images' => [
+                [
+                    'src'=> "$ruta"
+                ],
+            ],
             'categories' => [
                 0 => [
                     "name"=> $row['categoria'],
@@ -63,23 +74,44 @@ class ProductosImport implements ToModel, WithHeadingRow,WithUpserts{
                     "name"=> $row['subcategoria'],
                 ],
             ],
-            "meta_data" => [
+            'meta_data' => [
                 0 => [
                   "key"=> "id_proveedor",
-                  "value"=> $row['id_proveedor'],
+                  "value"=> number_format(floatval($row['codigo_tienda'])),
                 ],
                 2 => [
                   "key"=> "proveedor",
-                  "value"=> $row['proveedor'],
+                  "value"=> $row['tienda'],
                 ],
                 4 => [
                   "key"=> "costo",
-                  "value"=> $row['costo'],
+                  "value"=> number_format(floatval($row['costo'])),
                 ],
-              ]
+                6 => [
+                    "key"=> "margen",
+                    "value"=> number_format(floatval($row['margen'])),
+                ],
+                8 => [
+                    "key"=> "utilidad",
+                    "value"=> number_format(floatval($row['utilidad'])),
+                ],
+                10 => [
+                    "key"=> "costo_variable",
+                    "value"=> number_format(floatval($row['costo_variable'])),
+                ],
+                12 => [
+                    "key"=> "subtotal",
+                    "value"=> number_format(floatval($row['subtotal'])),
+                ],
+                14 => [
+                    "key"=> "iva",
+                    "value"=> number_format(floatval($row['iva'])),
+                ],
+            ]
         ];
 
         $newProduct = Product::create($data);
+
 
         return $producto;
     }
