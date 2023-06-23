@@ -18,6 +18,8 @@ class ScannerController extends Controller
     }
 
     public function index_products(){
+        // $newProduct = Product::get();
+        // dd($newProduct);
         return view('admin.scanner.index_product');
     }
 
