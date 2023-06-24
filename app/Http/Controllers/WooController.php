@@ -139,31 +139,11 @@ class WooController extends Controller
 
     public function store(Request $request){
 
-        $validator = Validator::make($request->all(), [
-            'name' => 'required',
-            'regular_price' => 'required',
-            'description' => '',
-            'sku' => '',
-            'stock_quantity' => '',
-        ]);
-
-        $name = $request->get('name');
-        $description = $request->get('description');
-        $descripcion_corta = substr($description, 0, 100) . "... (ver más)";
-        $price = $request->get('regular_price');
-        $regular_price = $price;
-        $sku = $request->get('sku');
-        $stock_quantity = $request->get('stock_quantity');
-        $id_proveedor = $request->get('id_proveedor');
-        $nombre_del_proveedor = $request->get('nombre_del_proveedor');
-        $costo = $request->get('costo');
-        $clave_mayorista = $request->get('clave_mayorista');
-
         $dominio = $request->getHost();
-        if($dominio == 'taller.maniabikes.com.mx'){
-            $fotos_bicis = base_path('../public_html/taller/productos_fotos');
-            $img_fondo = base_path('../public_html/taller/cursos/fondo.png');
-            $tipografia = base_path('../public_html/taller/assets/user/fonts/LeelaUIb.ttf');
+        if($dominio == 'pv.mascotasinc.com.mx'){
+            $fotos_bicis = base_path('../public_html/pv.mascotasinc.com.mx/productos_fotos');
+            $img_fondo = base_path('../public_html/pv.mascotasinc.com.mx/cursos/fondo.png');
+            $tipografia = base_path('../public_html/pv.mascotasinc.com.mx/assets/user/fonts/LeelaUIb.ttf');
 
         }else{
             $fotos_bicis = public_path() . '/productos_fotos';
@@ -186,113 +166,76 @@ class WooController extends Controller
             });
 
             $imageWithBackground = $background->insert($image, 'center');
-            $text = wordwrap($request->get('name'), 25, "\n", true);
+            $text = wordwrap("-", 25, "\n", true);
             // Obtener la imagen de fondo con el tamaño adecuado
             $backgroundResized = $background->resizeCanvas($imageWithBackground->getWidth(), $imageWithBackground->getHeight());
-            $fontFile = base_path('../public_html/taller/assets/user/fonts/LeelaUIb.ttf');
-            $fontSize = 40;
-            $lineHeight = 1.5;
-            $textBoundingBox = imagettfbbox($fontSize, 0, $fontFile, $text);
-            $textWidth = $textBoundingBox[2] - $textBoundingBox[0];
-            $textHeight = ($textBoundingBox[1] - $textBoundingBox[7]) * $lineHeight;
 
-            // Agregar texto en la parte inferior izquierda de la imagen de fondo
-            $backgroundResized->text($text, 10, $backgroundResized->getHeight() - $textHeight + 73, function($font) use ($fontFile, $fontSize) {
-                $font->file($fontFile);
-                $font->size($fontSize);
-                $font->color('#FFFFFF');
-                $font->align('left');
-                $font->valign('bottom');
-            });
+
 
             // Guardar la imagen resultante
             $backgroundResized->save($path.'/'.$fileName);
 
 
-            $ruta_completa = 'https://taller.maniabikes.com.mx/productos_fotos/' . $fileName;
+            $ruta_completa = 'http://pv.mascotasinc.com.mx/productos_fotos/' . $fileName;
         }
 
-        $text_meta = "Encuentra este y más productos Shimano en nuestro sitio web. Somos distribuidores autorizados. Contamos con servicio de taller.
-                    Contamos con una gran variedad de artículos para tu bicicleta en nuestra tienda en línea. Servicio de taller disponible en tienda.";
         $data = [
-            'name' => $name,
+            'name' => $request->get('description'),
             'type' => 'simple',
-            'price' => $price,
-            'regular_price' => $price,
-            'sku' => $sku,
+            'price' => $request->get('total'),
+            'regular_price' => $request->get('total'),
+            'sku' => $request->get('sku'),
             "manage_stock" => true,
-            'stock_quantity' => $stock_quantity,
-            'description' => $description,
-            'short_description' => $descripcion_corta,
+            'stock_quantity' => $request->get('stock_quantity'),
+            'description' => $request->get('description'),
+            'short_description' => $request->get('description'),
             'images' => [
                 [
-                    'src' => $ruta_completa
+                    'src'=>  $ruta_completa
                 ],
             ],
-            "meta_data" => [
+            'categories' => [
                 0 => [
-                  "key"=> "_wp_page_template",
-                  "value"=> "default",
-                ],
+                    "name"=> $request->get('categoria'),
+                    ],
                 1 => [
-                  "key"=> "wpp_send_notification_for_new_post",
-                  "value"=> "1",
+                    "name"=> $request->get('categoria'),
+                ],
+            ],
+            'meta_data' => [
+                0 => [
+                    "key"=> "id_proveedor",
+                    "value"=> number_format(floatval($request->get('id_proveedor'))),
                 ],
                 2 => [
-                  "key"=> "webpushr_notification_preview",
-                  "value"=> "0",
-                ],
-                3 => [
-                  "key"=> "id_proveedor",
-                  "value"=> $id_proveedor,
+                    "key"=> "proveedor",
+                    "value"=> $request->get('nombre_del_proveedor'),
                 ],
                 4 => [
-                  "key"=> "nombre_del_proveedor",
-                  "value"=> $nombre_del_proveedor,
-                ],
-                5 => [
-                  "key"=> "costo",
-                  "value"=> $costo,
+                    "key"=> "costo",
+                    "value"=> number_format(floatval($request->get('costo'))),
                 ],
                 6 => [
-                  "key"=> "clave_mayorista",
-                  "value"=> $clave_mayorista,
-                ],
-                7 => [
-                    "key"=> "_yoast_wpseo_focuskw",
-                    "value"=> $name,
+                    "key"=> "margen",
+                    "value"=> number_format(floatval($request->get('margen'))),
                 ],
                 8 => [
-                    "key"=> "_yoast_wpseo_metadesc",
-                    "value"=> $text_meta,
+                    "key"=> "utilidad",
+                    "value"=> number_format(floatval($request->get('margen'))),
                 ],
-                9 => [
-                    "key" => "yoast_head",
-                    "value" => <<<HTML
-                        <title>$name</title>
-                        <meta name="description" content="{$name}" />
-                        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
-                        <link rel="canonical" href="www.maniabikes.com.mx" />
-                        <meta property="og:locale" content="es_ES" />
-                        <meta property="og:type" content="article" />
-                        <meta property="og:title" content="{$name}" />
-                        <meta property="og:description" content="{$name}" />
-                        <meta property="og:url" content="www.maniabikes.com.mx" />
-                        <meta property="og:site_name" content="ManiaBikes" />
-                        <meta property="article:publisher" content="https://www.facebook.com/MANIABIKE/" />
-                        <meta property="article:modified_time" content="" />
-                        <meta property="og:image" content="{$ruta_completa}" />
-                        <meta property="og:image:width" content="1080" />
-                        <meta property="og:image:height" content="1080" />
-                        <meta property="og:image:type" content="image/png" />
-                        <meta name="twitter:card" content="summary_large_image" />
-                        <meta name="twitter:label1" content="Precio" />
-                        <meta name="twitter:data1" content="{$price}" />
-                        <meta name="twitter:label2" content="Availability" />
-                        <meta name="twitter:data2" content="Out of stock" />
-                    HTML,
+                10 => [
+                    "key"=> "costo_variable",
+                    "value"=> number_format(floatval($request->get('costo_variable'))),
                 ],
-              ]
+                12 => [
+                    "key"=> "subtotal",
+                    "value"=> number_format(floatval($request->get('subtotal'))),
+                ],
+                14 => [
+                    "key"=> "iva",
+                    "value"=> number_format(floatval($request->get('iva'))),
+                ],
+            ]
         ];
 
         $newProduct = Product::create($data);

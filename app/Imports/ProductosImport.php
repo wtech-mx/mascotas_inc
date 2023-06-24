@@ -32,7 +32,7 @@ class ProductosImport implements ToModel, WithHeadingRow,WithUpserts{
         $nombreImagen = str_replace(' ', '-', $nombreImagen);
         $ruta = "http://mascotasinc.com.mx/wp-content/uploads/2023/06/" . $nombreImagen;
         $fechaActual = Carbon::now()->toDateTimeString();
-        dd($ruta);
+
         $code = Str::random(4);
         $producto = new Productos([
             'nombre' => $row['descripcion'],
@@ -56,14 +56,14 @@ class ProductosImport implements ToModel, WithHeadingRow,WithUpserts{
             'type' => 'simple',
             'price' => number_format(floatval($row['total'])),
             'regular_price' => number_format(floatval($row['total'])),
-            'sku' => $code,
+            'sku' => $row['codigo_tienda'],
             "manage_stock" => true,
             'stock_quantity' => $row['unidades'],
             'description' => $row['descripcion'],
             'short_description' => $row['descripcion'],
             'images' => [
                 [
-                    'src'=> "$ruta"
+                    'src'=> $ruta
                 ],
             ],
             'categories' => [
