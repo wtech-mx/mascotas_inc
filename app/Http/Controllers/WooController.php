@@ -29,8 +29,8 @@ class WooController extends Controller
         $page = $request->input('page', 1);
         $perPage = 25; // Número de productos por página que quieres obtener
         $client = new \GuzzleHttp\Client();
-        $response = $client->request('GET', 'https://www.maniabikes.com.mx/inicio/wp-json/wc/v3/products', [
-            'auth' => ['ck_669c65e13b042664bbf29cc9dd04f86b33b8f568', 'cs_4e770f2fa9f7bc9f5aca5d9bb5c3cda3478fea9a'],
+        $response = $client->request('GET', 'https://mascotasinc.com.mx/wp-json/wc/v3/products', [
+            'auth' => ['ck_3f580ed48916419561560f205b4bbf714bb4f7e3', 'cs_6c6420740ee3cb7b4efacef4a20fd1038b84382e'],
             'query' => [
                 'search' => $buscar,
                 'page' => $page,
