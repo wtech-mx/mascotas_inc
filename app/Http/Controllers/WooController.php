@@ -140,6 +140,7 @@ class WooController extends Controller
     public function store(Request $request){
 
         $dominio = $request->getHost();
+
         if($dominio == 'pv.mascotasinc.com.mx'){
             $fotos_bicis = base_path('../public_html/pv.mascotasinc.com.mx/productos_fotos');
             $img_fondo = base_path('../public_html/pv.mascotasinc.com.mx/cursos/fondo.png');
@@ -150,6 +151,7 @@ class WooController extends Controller
             $img_fondo = public_path('cursos/fondo.png');
             $tipografia = public_path('assets/user/fonts/LeelaUIb.ttf');
         }
+
 
         if ($request->hasFile("image")) {
             $file = $request->file('image');
@@ -237,7 +239,9 @@ class WooController extends Controller
                 ],
             ]
         ];
-dd($data);
+
+
+
         $newProduct = Product::create($data);
 
          Alert::success('Producto creado', 'Se ha guardado con exito');
