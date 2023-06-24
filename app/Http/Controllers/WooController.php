@@ -237,7 +237,7 @@ class WooController extends Controller
                 ],
             ]
         ];
-
+dd($data);
         $newProduct = Product::create($data);
 
          Alert::success('Producto creado', 'Se ha guardado con exito');
