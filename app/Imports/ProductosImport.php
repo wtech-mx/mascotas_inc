@@ -30,6 +30,7 @@ class ProductosImport implements ToModel, WithHeadingRow,WithUpserts{
 
         $nombreImagen = $row['foto'];
         $nombreImagen = str_replace(' ', '-', $nombreImagen);
+        $nombreImagen = str_replace('.jpg', '-scaled.jpg', $nombreImagen);
         $ruta = "http://mascotasinc.com.mx/wp-content/uploads/2023/06/" . $nombreImagen;
         $fechaActual = Carbon::now()->toDateTimeString();
 
