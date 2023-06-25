@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Codexshaper\WooCommerce\Facades\WooCommerce;
+use Codexshaper\WooCommerce\Facades\Customer ;
 use Session;
 
 class ClientController extends Controller
@@ -28,16 +30,24 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'last_name' => 'required',
-            'email' => 'required',
-            'phone' => 'required'
-        ]);
 
-        $input = $request->all();
+        $random = rand();
+        $nombreram =  $request->input('nombre').$random;
 
-        $servicio = Cliente::create($input);
+        $data = [
+            'email' => $request->get('email'),
+            'first_name' => $request->get('nombre'),
+            'last_name' => $request->get('nombre'),
+            'username' => $nombreram,
+        ];
+
+        $newCustomer= Customer ::create($data);
+
+        $cliente = new Cliente;
+        $cliente->nombre = $request->get('nombre');
+        $cliente->email = $request->get('email');
+        $cliente->telefono = $request->get('telefono');
+        $cliente->save();
 
         Session::flash('success', 'Se ha guardado sus datos con exito');
         return redirect()->route('clients.index')
