@@ -303,7 +303,7 @@ class WooController extends Controller
 
 
 
-         dd($data);
+        //  dd($data);
 
         $newProduct = Product::create($data);
 
