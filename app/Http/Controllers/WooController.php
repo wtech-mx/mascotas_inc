@@ -181,63 +181,129 @@ class WooController extends Controller
             $ruta_completa = 'http://pv.mascotasinc.com.mx/productos_fotos/' . $fileName;
         }
 
-        $data = [
-            'name' => $request->get('description'),
-            'type' => 'simple',
-            'price' => $request->get('total'),
-            'regular_price' => $request->get('total'),
-            'sku' => $request->get('sku'),
-            "manage_stock" => true,
-            'stock_quantity' => $request->get('stock_quantity'),
-            'description' => $request->get('description'),
-            'short_description' => $request->get('description'),
-            'images' => [
-                [
-                    'src'=>  $ruta_completa
+        if($request->get('categoria') == 20 or $request->get('categoria') == 21 or $request->get('categoria') == 22 or $request->get('categoria') == 18){
+            $data = [
+                'name' => $request->get('description'),
+                'type' => 'simple',
+                'price' => $request->get('total'),
+                'regular_price' => $request->get('total'),
+                'sku' => $request->get('sku'),
+                "manage_stock" => true,
+                'stock_quantity' => $request->get('stock_quantity'),
+                'description' => $request->get('description'),
+                'short_description' => $request->get('description'),
+                'images' => [
+                    [
+                        'src'=>  $ruta_completa
+                    ],
                 ],
-            ],
-            'categories' => [
-                [
-                    'id' => $request->get('categoria'),
+                'categories' => [
+                    [
+                        'id' => $request->get('categoria'),
+                    ],
+                    [
+                        'id' => 17,
+                    ],
                 ],
-            ],
-            'meta_data' => [
-                0 => [
-                    "key"=> "id_proveedor",
-                    "value"=> number_format(floatval($request->get('id_proveedor'))),
+                'meta_data' => [
+                    0 => [
+                        "key"=> "id_proveedor",
+                        "value"=> number_format(floatval($request->get('id_proveedor'))),
+                    ],
+                    2 => [
+                        "key"=> "proveedor",
+                        "value"=> $request->get('nombre_del_proveedor'),
+                    ],
+                    4 => [
+                        "key"=> "costo",
+                        "value"=> number_format(floatval($request->get('costo'))),
+                    ],
+                    6 => [
+                        "key"=> "margen",
+                        "value"=> number_format(floatval($request->get('margen'))),
+                    ],
+                    8 => [
+                        "key"=> "utilidad",
+                        "value"=> number_format(floatval($request->get('margen'))),
+                    ],
+                    10 => [
+                        "key"=> "costo_variable",
+                        "value"=> number_format(floatval($request->get('costo_variable'))),
+                    ],
+                    12 => [
+                        "key"=> "subtotal",
+                        "value"=> number_format(floatval($request->get('subtotal'))),
+                    ],
+                    14 => [
+                        "key"=> "iva",
+                        "value"=> number_format(floatval($request->get('iva'))),
+                    ],
+                ]
+            ];
+        }elseif($request->get('categoria') == 19 or $request->get('categoria') == 23){
+            $data = [
+                'name' => $request->get('description'),
+                'type' => 'simple',
+                'price' => $request->get('total'),
+                'regular_price' => $request->get('total'),
+                'sku' => $request->get('sku'),
+                "manage_stock" => true,
+                'stock_quantity' => $request->get('stock_quantity'),
+                'description' => $request->get('description'),
+                'short_description' => $request->get('description'),
+                'images' => [
+                    [
+                        'src'=>  $ruta_completa
+                    ],
                 ],
-                2 => [
-                    "key"=> "proveedor",
-                    "value"=> $request->get('nombre_del_proveedor'),
+                'categories' => [
+                    [
+                        'id' => $request->get('categoria'),
+                    ],
+                    [
+                        'id' => 16,
+                    ],
                 ],
-                4 => [
-                    "key"=> "costo",
-                    "value"=> number_format(floatval($request->get('costo'))),
-                ],
-                6 => [
-                    "key"=> "margen",
-                    "value"=> number_format(floatval($request->get('margen'))),
-                ],
-                8 => [
-                    "key"=> "utilidad",
-                    "value"=> number_format(floatval($request->get('margen'))),
-                ],
-                10 => [
-                    "key"=> "costo_variable",
-                    "value"=> number_format(floatval($request->get('costo_variable'))),
-                ],
-                12 => [
-                    "key"=> "subtotal",
-                    "value"=> number_format(floatval($request->get('subtotal'))),
-                ],
-                14 => [
-                    "key"=> "iva",
-                    "value"=> number_format(floatval($request->get('iva'))),
-                ],
-            ]
-        ];
+                'meta_data' => [
+                    0 => [
+                        "key"=> "id_proveedor",
+                        "value"=> number_format(floatval($request->get('id_proveedor'))),
+                    ],
+                    2 => [
+                        "key"=> "proveedor",
+                        "value"=> $request->get('nombre_del_proveedor'),
+                    ],
+                    4 => [
+                        "key"=> "costo",
+                        "value"=> number_format(floatval($request->get('costo'))),
+                    ],
+                    6 => [
+                        "key"=> "margen",
+                        "value"=> number_format(floatval($request->get('margen'))),
+                    ],
+                    8 => [
+                        "key"=> "utilidad",
+                        "value"=> number_format(floatval($request->get('margen'))),
+                    ],
+                    10 => [
+                        "key"=> "costo_variable",
+                        "value"=> number_format(floatval($request->get('costo_variable'))),
+                    ],
+                    12 => [
+                        "key"=> "subtotal",
+                        "value"=> number_format(floatval($request->get('subtotal'))),
+                    ],
+                    14 => [
+                        "key"=> "iva",
+                        "value"=> number_format(floatval($request->get('iva'))),
+                    ],
+                ]
+            ];
+        }
 
-        // dd($data);
+
+
+         dd($data);
 
         $newProduct = Product::create($data);
 
