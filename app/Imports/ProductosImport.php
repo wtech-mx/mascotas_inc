@@ -34,6 +34,10 @@ class ProductosImport implements ToModel, WithHeadingRow,WithUpserts{
         $ruta = "http://mascotasinc.com.mx/wp-content/uploads/2023/06/" . $nombreImagen;
         $fechaActual = Carbon::now()->toDateTimeString();
 
+        $subtotal = $row['costo'] + $row['utilidad'] + $row['costo_variable'];
+        $iva = $subtotal * 0.16;
+        $total = $subtotal + $iva;
+
         $code = Str::random(4);
         $producto = new Productos([
             'nombre' => $row['descripcion'],
@@ -42,22 +46,23 @@ class ProductosImport implements ToModel, WithHeadingRow,WithUpserts{
             'stock' => $row['unidades'],
             'categoria' => $row['categoria'],
             'subcategoria' => $row['subcategoria'],
-            'iva' => $row['iva'],
+            'iva' => $iva,
             'margen' => $row['margen'],
             'utilidad' => $row['utilidad'],
             'costo_fijo' => $row['costo_variable'],
-            'subtotal' => $row['subtotal'],
-            'iva_pa' => $row['iva'],
-            'total' => $row['total'],
+            'subtotal' =>  $subtotal,
+            'iva_pa' => $iva,
+            'total' => $total,
             'imagen' => $row['foto'],
         ]);
+
 
         $data = [
             'name' => $row['descripcion'],
             'type' => 'simple',
-            'price' => number_format(floatval($row['total'])),
-            'regular_price' => number_format(floatval($row['total'])),
-            'sku' => $row['codigo_tienda'],
+            'price' => number_format(floatval($total)),
+            'regular_price' => number_format(floatval($total)),
+            'sku' => $code,
             "manage_stock" => true,
             'stock_quantity' => $row['unidades'],
             'description' => $row['descripcion'],
@@ -78,7 +83,7 @@ class ProductosImport implements ToModel, WithHeadingRow,WithUpserts{
             'meta_data' => [
                 0 => [
                   "key"=> "id_proveedor",
-                  "value"=> number_format(floatval($row['codigo_tienda'])),
+                  "value"=> $row['codigo_tienda'],
                 ],
                 2 => [
                   "key"=> "proveedor",
@@ -102,11 +107,11 @@ class ProductosImport implements ToModel, WithHeadingRow,WithUpserts{
                 ],
                 12 => [
                     "key"=> "subtotal",
-                    "value"=> number_format(floatval($row['subtotal'])),
+                    "value"=> number_format(floatval($subtotal)),
                 ],
                 14 => [
                     "key"=> "iva",
-                    "value"=> number_format(floatval($row['iva'])),
+                    "value"=> number_format(floatval($iva)),
                 ],
             ]
         ];

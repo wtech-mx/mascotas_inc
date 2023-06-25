@@ -267,61 +267,61 @@
                                         <img class="img_icon_form " style="width: 30px;" src="{{ asset('assets/admin/img/icons/dolar.png') }}" alt="">
                                     </span>
 
-                                    <input class="form-control" type="number"  id="costo" name="costo" >
+                                    <input class="form-control" type="number"  id="costo2" name="costo" oninput="calcularValoresMedicina()">
                                 </div>
                             </div>
 
                             <div class="col-6 form-group ">
-                                <label for="" class="form-control-label label_form_custom">IVA </label>
+                                <label for="" class="form-control-label label_form_custom">IVA Acreditable</label>
                                 <div class="input-group input-group-alternative mb-4">
-                                <input class="form-control" type="text" id="iva" name="iva" placeholder="IVA" >
+                                <input class="form-control" type="text" id="iva-acre" name="iva-acre" placeholder="IVA" >
                                 </div>
                             </div>
 
                             <div class="col-6 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Costo Total </label>
+                                <label for="" class="form-control-label label_form_custom">Costo sin IVA </label>
                                 <div class="input-group input-group-alternative mb-4">
-                                <input class="form-control" type="text" id="costo-total" name="costo-total" placeholder="Costo Total">
+                                <input class="form-control" type="text" id="costo-sin-iva" name="costo-sin-iva" placeholder="Costo sin iva">
                                 </div>
                             </div>
 
                             <div class="col-6 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Margen</label>
+                                <label for="" class="form-control-label label_form_custom">Cost Unit</label>
                                 <div class="input-group input-group-alternative mb-4">
-                                <input class="form-control" type="text" id="margen" name="margen" value="0.5">
+                                <input class="form-control" type="text" id="cost-unit" name="cost-unit" value="41.52">
                                 </div>
                             </div>
 
                             <div class="col-6 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Utilidad</label>
+                                <label for="" class="form-control-label label_form_custom">Cost Base</label>
                                 <div class="input-group input-group-alternative mb-4">
-                                <input class="form-control" type="text" id="utilidad" name="utilidad" placeholder="Utilidad">
+                                <input class="form-control" type="text" id="cost-base" name="cost-base" placeholder="Utilidad">
                                 </div>
                             </div>
 
                             <div class="col-6 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Costo Fijo</label>
+                                <label for="" class="form-control-label label_form_custom">Iva Venta</label>
                                 <div class="input-group input-group-alternative mb-4">
                                 <input class="form-control" type="text" id="valor-costo-fijo" name="valor-costo-fijo" value="41.52">
                                 </div>
                             </div>
 
                             <div class="col-6 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Subtotal</label>
+                                <label for="" class="form-control-label label_form_custom">Costo Integrado</label>
                                 <div class="input-group input-group-alternative mb-4">
                                 <input class="form-control" type="text" id="subtotal" name="subtotal" placeholder="Subtotal">
                                 </div>
                             </div>
 
                             <div class="col-6 form-group ">
-                                <label for="" class="form-control-label label_form_custom">IVA PA</label>
+                                <label for="" class="form-control-label label_form_custom">Costo / ml</label>
                                 <div class="input-group input-group-alternative mb-4">
                                 <input class="form-control" type="text" id="iva-pa" name="iva-pa" placeholder="IVA_PA">
                                 </div>
                             </div>
 
                             <div class="col-6 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Total</label>
+                                <label for="" class="form-control-label label_form_custom">Precio/ ml</label>
                                 <div class="input-group input-group-alternative mb-4">
                                 <input class="form-control" type="text" id="total" name="total" placeholder="Total">
                                 </div>
