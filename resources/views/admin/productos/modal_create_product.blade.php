@@ -62,7 +62,17 @@
                     <div class="col-6 form-group ">
                         <label for="" class="form-control-label label_form_custom">Categoria </label>
                         <div class="input-group input-group-alternative mb-4">
-                        <input class="form-control" type="number"  id="categoria" name="categoria" >
+                        {{-- <input class="form-control" type="text"  id="categoria" name="categoria" > --}}
+                        <select class="form-select"  id="categoria" name="categoria" >
+                            <option value="0">Seleciona una Opcion</option>
+                            <option value="20">Perro accesorio </option>
+                            <option value="22">Perro higiene </option>
+                            <option value="21">Perro juguetes </option>
+                            <option value="18">Perro ropa </option>
+                            <option value="19">Gato accesorios </option>
+                            <option value="23">Gato higiene </option>
+                            <option value="25">Perro y gato higien</option>
+                        </select>
                         </div>
                     </div>
 

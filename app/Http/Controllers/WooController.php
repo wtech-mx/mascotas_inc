@@ -200,9 +200,6 @@ class WooController extends Controller
                 0 => [
                     "name"=> $request->get('categoria'),
                     ],
-                1 => [
-                    "name"=> $request->get('categoria'),
-                ],
             ],
             'meta_data' => [
                 0 => [
@@ -240,7 +237,7 @@ class WooController extends Controller
             ]
         ];
 
-
+        // dd($data);
 
         $newProduct = Product::create($data);
 
