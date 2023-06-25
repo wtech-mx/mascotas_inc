@@ -197,9 +197,9 @@ class WooController extends Controller
                 ],
             ],
             'categories' => [
-                0 => [
-                    "name"=> $request->get('categoria'),
-                    ],
+                [
+                    'id' => $request->get('categoria'),
+                ],
             ],
             'meta_data' => [
                 0 => [
