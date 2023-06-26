@@ -299,6 +299,77 @@ class WooController extends Controller
                     ],
                 ]
             ];
+        }elseif($request->get('categoria') == 26){
+            $data = [
+                'name' => $request->get('name2'),
+                'type' => 'simple',
+                'price' => $request->get('precio-ml'),
+                'regular_price' => $request->get('precio-ml'),
+                'sku' => $request->get('sku2'),
+                "manage_stock" => true,
+                'stock_quantity' => $request->get('stock_quantity2'),
+                'description' => $request->get('description2'),
+                'short_description' => $request->get('description2'),
+                'images' => [
+                    [
+                        'src'=>  $ruta_completa
+                    ],
+                ],
+                'categories' => [
+                    [
+                        'id' => $request->get('categoria'),
+                    ],
+                    [
+                        'id' => 16,
+                    ],
+                ],
+                'meta_data' => [
+                    0 => [
+                        "key"=> "id_proveedor",
+                        "value"=> number_format(floatval($request->get('id_proveedor'))),
+                    ],
+                    2 => [
+                        "key"=> "proveedor",
+                        "value"=> $request->get('nombre_del_proveedor'),
+                    ],
+                    4 => [
+                        "key"=> "costo",
+                        "value"=> number_format(floatval($request->get('costo2'))),
+                    ],
+                    11 => [
+                        "key"=> "iva_acre",
+                        "value"=> number_format(floatval($request->get('iva-acre'))),
+                    ],
+                    13 => [
+                        "key"=> "costo_sin_iva",
+                        "value"=> number_format(floatval($request->get('costo-sin-iva'))),
+                    ],
+                    15 => [
+                        "key"=> "cost_unit",
+                        "value"=> number_format(floatval($request->get('cost-unit'))),
+                    ],
+                    17 => [
+                        "key"=> "cost_base",
+                        "value"=> number_format(floatval($request->get('cost-base'))),
+                    ],
+                    19 => [
+                        "key"=> "valor_venta",
+                        "value"=> number_format(floatval($request->get('valor-venta'))),
+                    ],
+                    21 => [
+                        "key"=> "costo_integrado",
+                        "value"=> number_format(floatval($request->get('costo-integrado'))),
+                    ],
+                    23 => [
+                        "key"=> "costo_ml",
+                        "value"=> number_format(floatval($request->get('costo-ml'))),
+                    ],
+                    25 => [
+                        "key"=> "precio_ml",
+                        "value"=> number_format(floatval($request->get('precio-ml'))),
+                    ],
+                ]
+            ];
         }
 
 

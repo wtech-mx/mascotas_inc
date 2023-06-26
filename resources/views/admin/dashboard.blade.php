@@ -259,11 +259,18 @@
   function calcularValoresMedicina() {
     var costo2 = parseFloat($('#costo2').val());
     var costUnit = parseFloat($('#cost-unit').val());
+    var empaque = parseFloat($('#empaque').val());
 
     var costoSinIVA = costo2 * 0.84; // Calcula el costo sin IVA
     var ivaAcre = costo2 - costoSinIVA; // Realiza la resta
     var costBase = costoSinIVA + costUnit; // Realiza la suma
+    var valorCostoFijo = costBase * 0.16; // Calcula el valor del costo fijo
+    var costoIntegrado = costBase + valorCostoFijo; // Realiza la suma
+    var costoML = empaque / costoIntegrado; // Realiza la división
 
+    $('#costo-ml').val(costoML.toFixed(2));
+    $('#costo-integrado').val(costoIntegrado.toFixed(2));
+    $('#valor-venta').val(valorCostoFijo.toFixed(2));
     $('#costo-sin-iva').val(costoSinIVA.toFixed(2));
     $('#iva-acre').val(ivaAcre.toFixed(2));
     $('#cost-base').val(costBase.toFixed(2));

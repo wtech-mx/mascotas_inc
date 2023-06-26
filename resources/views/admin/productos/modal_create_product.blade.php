@@ -199,13 +199,13 @@
                                     <img class="img_icon_form " style="width: 30px;" src="{{ asset('assets/admin/img/icons/llantas.png') }}" alt="">
                                 </span>
 
-                                <input class="form-control" type="text"  id="name" name="name" >
+                                <input class="form-control" type="text"  id="name2" name="name2" >
                                 </div>
                             </div>
 
                             <div class="col-12 form-group ">
                                 <label for="" class="form-control-label label_form_custom">Descripcion</label>
-                                <textarea name="description" id="description" cols="30" rows="3" class="form-control"></textarea>
+                                <textarea name="description2" id="description2" cols="30" rows="3" class="form-control"></textarea>
                             </div>
 
                             <div class="col-6 form-group ">
@@ -232,7 +232,7 @@
                                     <img class="img_icon_form " style="width: 30px;" src="{{ asset('assets/admin/img/icons/cajas.png') }}" alt="">
                                 </span>
 
-                                <input class="form-control" type="number"  id="stock_quantity" name="stock_quantity" >
+                                <input class="form-control" type="number"  id="stock_quantity2" name="stock_quantity2" >
                                 </div>
                             </div>
 
@@ -261,13 +261,20 @@
                             </div>
 
                             <div class="col-6 form-group ">
+                                <label for="" class="form-control-label label_form_custom">Empaque </label>
+                                <div class="input-group input-group-alternative mb-4">
+                                <input class="form-control" type="text"  id="empaque" name="empaque" >
+                                </div>
+                            </div>
+
+                            <div class="col-6 form-group ">
                                 <label for="" class="form-control-label label_form_custom">Costo </label>
                                 <div class="input-group input-group-alternative mb-4">
                                     <span class="input-group-text">
                                         <img class="img_icon_form " style="width: 30px;" src="{{ asset('assets/admin/img/icons/dolar.png') }}" alt="">
                                     </span>
 
-                                    <input class="form-control" type="number"  id="costo2" name="costo" oninput="calcularValoresMedicina()">
+                                    <input class="form-control" type="number"  id="costo2" name="costo2" oninput="calcularValoresMedicina()">
                                 </div>
                             </div>
 
@@ -302,28 +309,28 @@
                             <div class="col-6 form-group ">
                                 <label for="" class="form-control-label label_form_custom">Iva Venta</label>
                                 <div class="input-group input-group-alternative mb-4">
-                                <input class="form-control" type="text" id="valor-costo-fijo" name="valor-costo-fijo" value="41.52">
+                                <input class="form-control" type="text" id="valor-venta" name="valor-venta">
                                 </div>
                             </div>
 
                             <div class="col-6 form-group ">
                                 <label for="" class="form-control-label label_form_custom">Costo Integrado</label>
                                 <div class="input-group input-group-alternative mb-4">
-                                <input class="form-control" type="text" id="subtotal" name="subtotal" placeholder="Subtotal">
+                                <input class="form-control" type="text" id="costo-integrado" name="costo-integrado" placeholder="costo integrado">
                                 </div>
                             </div>
 
                             <div class="col-6 form-group ">
                                 <label for="" class="form-control-label label_form_custom">Costo / ml</label>
                                 <div class="input-group input-group-alternative mb-4">
-                                <input class="form-control" type="text" id="iva-pa" name="iva-pa" placeholder="IVA_PA">
+                                <input class="form-control" type="text" id="costo-ml" name="costo-ml" placeholder="Costo ml">
                                 </div>
                             </div>
 
                             <div class="col-6 form-group ">
                                 <label for="" class="form-control-label label_form_custom">Precio/ ml</label>
                                 <div class="input-group input-group-alternative mb-4">
-                                <input class="form-control" type="text" id="total" name="total" placeholder="Total">
+                                <input class="form-control" type="text" id="precio-ml" name="precio-ml" placeholder="Precio ml">
                                 </div>
                             </div>
 
