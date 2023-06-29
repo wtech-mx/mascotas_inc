@@ -6,7 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PermisosController;
 use App\Http\Controllers\ScannerController;
-
+use App\Http\Controllers\CostosfijosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -110,6 +110,12 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/productos/buscar', [App\Http\Controllers\WooController::class, 'search'])->name('productos.buscar');
 
     Route::post('/admin/products/import', [App\Http\Controllers\WooController::class, 'import_products'])->name('products.import');
+
+    /*|--------------------------------------------------------------------------
+    |Colores
+    |--------------------------------------------------------------------------*/
+    Route::post('costos/create', [CostosfijosController::class, 'create'])->name('costos.create');
+    Route::post('costos/update/{id}', [CostosfijosController::class, 'update_costos'])->name('costos.update_costos');
 
 });
 

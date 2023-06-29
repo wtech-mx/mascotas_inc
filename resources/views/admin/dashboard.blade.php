@@ -156,7 +156,7 @@
                     </div>
                 </div>
             @endcan
-            
+
             <div class="col-12 col-md-6 py-3">
                 <div class="row">
                     <div class="col-12">
@@ -225,11 +225,28 @@
                     </div>
                 </div>
             @endcan
+
+
+                <div class="col-12 col-md-6 py-3">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="btn_bg_primario " style="background: {{$configuracion->color_boton_close}}!important">
+                                <a href="" data-bs-toggle="modal" data-bs-target="#modal_costosfijos">
+                                    <img class="btn_img_icon" src="{{ asset('assets/admin/img/icons/presupuesto.png') }}" alt="">
+                                    <p class="text-white d-inline-block">Costos Fijos</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
         </div>
 
     </div>
 </section>
 @include('admin.productos.modal_create_product')
+@include('admin.productos.modal_costosfijos')
 @include('admin.cliente.create')
 @endsection
 
