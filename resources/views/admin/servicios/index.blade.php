@@ -1,7 +1,7 @@
 @extends('layouts.app_admin')
 
 @section('template_title')
-   Servicios
+   Historial Clinico
 @endsection
 
 @section('css')
@@ -30,7 +30,7 @@
 
 <div class="row">
     <div class="col-12">
-        <h2 class="text-left text-white mt-3">Servicios</h2>
+        <h2 class="text-left text-white mt-3">Historial Clinico</h2>
     </div>
 
     <div class="col-12 mt-3 mb-3" style="padding: 0;">
@@ -53,7 +53,7 @@
                 <tr class="text-white" style="font-size: 13px;">
                     <th>Id</th>
                     <th>Cliente</th>
-                    <th>Bici</th>
+                    <th>Mascota</th>
                     <th>Fecha</th>
                     <th>Estat</th>
                     <th>Action</th>
@@ -63,11 +63,10 @@
             <tbody class="text-white">
                 <tr style="font-size: 13px;">
                     <td>
-                        {{$servicio->id}} <br>
-                        {{$servicio->folio}}
+                        {{$servicio->id}}
                     </td>
                     <td>{{$servicio->Cliente->nombre}} <br><a class="text-white" href="tel:+52{{$servicio->Cliente->telefono}}">{{$servicio->Cliente->telefono}}</a></td>
-                    <td>{{$servicio->marca}} <br> {{$servicio->modelo}}</td>
+                    <td>{{$servicio->tipo}}<br> {{$servicio->folio}}
                     <td>
                         @php
                             $fecha = $servicio->fecha;

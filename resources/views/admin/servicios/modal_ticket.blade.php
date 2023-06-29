@@ -6,7 +6,7 @@
                 <div class="modal-body" style="background: {{$configuracion->color_principal}}">
                     <div class="row">
                         <div class="col-12">
-                            <p class="text-center text-white"><strong>Ver Ticket</strong></p>
+                            <p class="text-center text-white"><strong>Ver Historial Clinico</strong></p>
 
                             <div class="d-flex ">
                                 <div class="row">
@@ -34,16 +34,16 @@
                                         </div>
 
                                         <div class="col-4 mt-3" style="color: {{$configuracion->color_iconos_cards}}">
-                                           <b>Servicio</b>
+                                           <b>Mascota</b>
                                         </div>
                                         <div class="col-4 mt-3" style="color: {{$configuracion->color_iconos_cards}}">
-                                           <b>Folio</b>
+                                           <b>Raza</b>
                                         </div>
                                         <div class="col-4 mt-3" style="color: {{$configuracion->color_iconos_cards}}">
                                            <b>Estatus</b>
                                         </div>
                                         <div class="col-4 text-white"  style="font-size: 13px;">
-                                            {{$servicio->servicio}}
+                                            {{$servicio->tipo}}
                                         </div>
                                         <div class="col-4 text-white" style="font-size: 13px;">
                                             {{$servicio->folio}}
@@ -51,108 +51,91 @@
                                         <div class="col-4 text-white" style="font-size: 13px;">
                                             {{$servicio->estatus}}
                                         </div>
+
+                                        <div class="col-4 mt-3" style="color: {{$configuracion->color_iconos_cards}}">
+                                            <b>Peso KG</b>
+                                         </div>
+                                         <div class="col-4 mt-3" style="color: {{$configuracion->color_iconos_cards}}">
+                                            <b>Temperatura</b>
+                                         </div>
+                                         <div class="col-4 mt-3" style="color: {{$configuracion->color_iconos_cards}}">
+
+                                         </div>
+                                         <div class="col-4 text-white"  style="font-size: 13px;">
+                                             {{$servicio->marca}}
+                                         </div>
+                                         <div class="col-4 text-white" style="font-size: 13px;">
+                                             {{$servicio->modelo}}
+                                         </div>
+                                         <div class="col-4 text-white" style="font-size: 13px;">
+
+                                        </div>
                                     {{-- E N D  D A T O S  G E N E R A L E S --}}
 
                                     {{-- D A T O S  P R O D U C T O S --}}
                                         <hr class="mt-3 mb-3" style="background-color: {{$configuracion->color_boton_close}}; height: 5px;">
 
                                         <div class="col-12 mt-2 mb-3" style="color: {{$configuracion->color_boton_close}}">
-                                            <strong>Componentes</strong>
+                                            <strong>Estado de la mascota</strong>
                                         </div>
-                                        <div class="col-2 mt-3" style="color: {{$configuracion->color_iconos_cards}}">
-                                           <b>sku</b>
+                                        <div class="col-3" style="color: {{$configuracion->color_iconos_cards}}">
+                                           <b>Analisis</b>
                                         </div>
-                                        <div class="col-8 mt-3" style="color: {{$configuracion->color_iconos_cards}}">
-                                           <b>Producto</b>
+                                        <div class="col-3" style="color: {{$configuracion->color_iconos_cards}}">
+                                            <b>Ultra</b>
+                                         </div>
+                                        <div class="col-3" style="color: {{$configuracion->color_iconos_cards}}">
+                                           <b>RX</b>
                                         </div>
-                                        <div class="col-2 mt-3" style="color: {{$configuracion->color_iconos_cards}}">
-                                           <b>Precio</b>
+                                        <div class="col-3" style="color: {{$configuracion->color_iconos_cards}}">
+                                            <b>Extra</b>
                                         </div>
-                                        @php $suma=0; @endphp
-                                        @if(!empty($servicio->TallerProductos->id ))
-                                            @foreach ($taller_productos as $taller_producto)
-                                                @if($taller_producto->id_taller == $servicio->id)
-                                                <div class="col-2">
-                                                    <p class="text-white" style="font-size: 11px;">{{$taller_producto->sku}}</p>
-                                                    <form action="{{ route('products_taller.destroy', $taller_producto->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('DELETE')
+                                        <div class="col-3 text-white" style="font-size: 13px;">
+                                            <a  href="{{ asset('fotos_bicis/'.$servicio->foto1) }}" download="analisisi-{{ $servicio->foto1 }}" style="color:#ffffff;">
+                                                Ver
+                                            </a>
+                                        </div>
+                                        <div class="col-3 text-white" style="font-size: 13px;">
+                                            <a  href="{{ asset('fotos_bicis/'.$servicio->foto2) }}" download="analisisi-{{ $servicio->foto1 }}" style="color:#ffffff;">
+                                                Ver
+                                            </a>
+                                        </div>
+                                        <div class="col-3 text-white" style="font-size: 13px;">
+                                            <a  href="{{ asset('fotos_bicis/'.$servicio->foto3) }}" download="analisisi-{{ $servicio->foto1 }}" style="color:#ffffff;">
+                                                Ver
+                                            </a>
+                                        </div>
+                                        <div class="col-3 text-white" style="font-size: 13px;">
+                                            <a  href="{{ asset('fotos_bicis/'.$servicio->foto4) }}" download="analisisi-{{ $servicio->foto1 }}" style="color:#ffffff;">
+                                                Ver
+                                            </a>
+                                        </div>
 
-                                                        <button type="submit" style="background: transparent;border: solid 1px transparent;">
-                                                            <img style="width:25px" src="{{ asset('assets/admin/img/icons/bote-de-basura.png') }}" alt="">
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                                <div class="col-8">
-                                                   <a class="text-white" style="font-size: 11px;" href="{{$taller_producto->permalink}}" target="_blank">
-                                                    {{$taller_producto->producto}}
-                                                   </a>
-                                                </div>
-                                                <div class="col-2 text-white" >
-                                                    <form action="{{ route('taller.precio_product', $taller_producto->id) }}" method="POST">
-                                                        @csrf
-                                                        @method('PATCH')
-                                                        {{-- <input type="hidden" value="{{$taller_producto->id}}"> --}}
-                                                        <input type="number" id="price" name="price" value="{{$taller_producto->price}}" style="width: 50px;
-                                                            background: #fff;
-                                                            border-radius: 10px;
-                                                            border: solid 3px transparent;">
-                                                        <button type="submit" style="background: transparent;border: solid 1px transparent;">
-                                                            <img style="width:25px" src="{{ asset('assets/admin/img/icons/disquete.png') }}" alt="">
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                                @php $suma+=$taller_producto->price @endphp
-                                                @endif
-                                            @endforeach
-                                        @endif
                                     {{-- E N D  D A T O S  P R O D U C T O S --}}
                                     <hr class="mt-3 mb-3" style="background-color: {{$configuracion->color_boton_close}}; height: 5px;">
                                     {{-- D A T O S  T O T A L --}}
                                         <div class="col-12 mt-2 mb-3" style="color: {{$configuracion->color_boton_close}}">
-                                            <strong>Total Sugerido</strong>
+                                            <strong>Total</strong>
                                         </div>
-                                        <div class="col-10 mt-3" style="color: {{$configuracion->color_iconos_cards}}">
+                                        <div class="col-9 mt-3" style="color: {{$configuracion->color_iconos_cards}}">
                                            <b>Servicio</b>
                                         </div>
+
                                         <div class="col-2 text-white">
-                                            <form action="{{ route('taller.precio_servicio', $servicio->id) }}" method="POST">
-                                                @csrf
-                                                @method('PATCH')
-                                                {{-- <input type="hidden" value="{{$taller_producto->id}}"> --}}
-                                                <input type="number" id="precio_servicio" name="precio_servicio" value="{{$servicio->precio_servicio}}" style="width: 50px;
-                                                    background: #fff;
-                                                    border-radius: 10px;
-                                                    border: solid 3px transparent;">
-                                                <button type="submit" style="background: transparent;border: solid 1px transparent;">
-                                                    <img style="width:25px" src="{{ asset('assets/admin/img/icons/disquete.png') }}" alt="">
-                                                </button>
-                                            </form>                                        </div>
-                                        <div class="col-10 mt-3" style="color: {{$configuracion->color_iconos_cards}}">
-                                           <b>Componentes</b>
-                                        </div>
-                                        <div class="col-2 text-white">
-                                            ${{$suma}}
-                                        </div>
-                                        <div class="col-10 mt-3" style="color: {{$configuracion->color_iconos_cards}}">
-                                           <b>SubTotal</b>
-                                        </div>
-                                        @php $subtotal=$suma + $servicio->precio_servicio @endphp
-                                        <div class="col-2 text-white">
-                                            <input type="text" value="{{$subtotal}}" style="width: 50px;
+                                            <input type="text" style="width: 50px;
                                             background: #fff;
                                             border-radius: 10px;
-                                            border: solid 3px transparent;">
+                                            border: solid 3px transparent;" value="{{ $servicio->precio_servicio }}">
                                         </div>
-                                        <div class="col-10 mt-3" style="color: {{$configuracion->color_iconos_cards}}">
-                                           <b>Total</b>
+                                        <div class="col-9 mt-3" style="color: {{$configuracion->color_iconos_cards}}">
+                                           <b>A favor</b>
                                         </div>
-                                        @php $total=$subtotal - $servicio->subtotal @endphp
+
                                         <div class="col-2 text-white">
-                                            <input type="text" value="{{$total}}" style="width: 50px;
+                                            <input type="text" style="width: 50px;
                                             background: #fff;
                                             border-radius: 10px;
-                                            border: solid 3px transparent;" disabled>
+                                            border: solid 3px transparent;" value="{{ $servicio->subtotal }}">
                                         </div>
                                     {{-- E N D  D A T O S  T O T A L --}}
                                 </div>

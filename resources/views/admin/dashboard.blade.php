@@ -7,7 +7,7 @@
 
 
         <div class="col-12 mt-5">
-            <h1 class="text-white">¡Hola! Pablo </h1>
+            <h1 class="text-white">¡Hola! {{ Auth::user()->name }} </h1>
         </div>
 
         <div class="row">
@@ -17,8 +17,8 @@
                         <div class="col-9">
                             <a href="{{ route('taller.index') }}">
                                 <div class="btn_bg_primario" style="background: {{$configuracion->color_boton_close}}!important">
-                                    <img class="btn_img_icon" src="{{ asset('assets/admin/img/icons/engranaje.png') }}" alt="">
-                                    <p class="text-white d-inline-block">Servicios</p>
+                                    <img class="btn_img_icon" src="{{ asset('assets/admin/img/icons/lista-de-verificacion.png') }}" alt="">
+                                    <p class="text-white d-inline-block">Historial Clínico</p>
                                 </div>
                             </a>
                         </div>
@@ -156,6 +156,17 @@
                     </div>
                 </div>
             @endcan
+            
+            <div class="col-12 col-md-6 py-3">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="btn_bg_primario " style="background: {{$configuracion->color_boton_close}}!important">
+                            <img class="btn_img_icon" src="{{ asset('assets/admin/img/icons/mascotas/pets.png') }}" alt="">
+                            <p class="text-white d-inline-block">Mascotas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             @can('caja')
                 <div class="col-12 col-md-6 py-3">
@@ -172,16 +183,7 @@
                 </div>
             @endcan
 
-            <div class="col-12 col-md-6 py-3">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="btn_bg_primario " style="background: {{$configuracion->color_boton_close}}!important">
-                            <img class="btn_img_icon" src="{{ asset('assets/admin/img/icons/bicycle.png') }}" alt="">
-                            <p class="text-white d-inline-block">Bicicletas</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
 
             <div class="col-12 col-md-6 py-3">
                 <div class="row">

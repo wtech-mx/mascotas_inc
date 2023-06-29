@@ -1,7 +1,7 @@
 @extends('layouts.app_admin')
 
 @section('template_title')
-   Crear Servicio
+   Crear Historial
 @endsection
 
 @section('css')
@@ -12,15 +12,15 @@
     }
 
     .select2-container--default .select2-selection--single {
-    background-color: #fff;
-    border: 0px solid transparent !important;
-    border-radius: 0px!important;
-    padding: 22px;
-}
+        background-color: #fff;
+        border: 0px solid transparent !important;
+        border-radius: 0px!important;
+        padding: 22px;
+    }
 
-.select2 {
-    width: 380px!important;
-}
+    .select2 {
+        width: 380px!important;
+    }
 
 </style>
 @endsection
@@ -32,7 +32,7 @@
     <div class="row">
 
         <div class="col-12 mt-3 mb-3">
-            <h1 class="text-white text-center">¡Nuevo servicio!</h1>
+            <h1 class="text-white text-center">¡Nuevo Historial Clínico!</h1>
         </div>
 
         <div class="col-12" style="padding: 0!important;">
@@ -44,13 +44,13 @@
                     <div class="tab-pane fade show active" id="nav-detalles" role="tabpanel" aria-labelledby="nav-detalles-tab" tabindex="0">
                         <div class="row">
 
-                            <h4 class="text-center text-white mt-3">Detalles de la bicicleta</h4>
+                            <h4 class="text-center text-white mt-3">Detalles de la Mascota</h4>
 
-                            <div class="col-12 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Seleciona cliente y/o agrega uno </label>
+                            <div class="col-6 form-group ">
+                                <label for="" class="form-control-label label_form_custom">Dueño </label>
                                 <div class="input-group input-group-alternative mb-4">
                                     <span class="input-group-text" style="border-radius: 16px 0 0px 0px!important;">
-                                        <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/biker.png') }}" alt="">
+                                        <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/mascotas/dog-walking.png') }}" alt="">
                                     </span>
                                     <select class="form-control cliente" data-toggle="select" id="id_cliente" name="id_cliente">
                                         <option value="">Seleccionar cliente</option>
@@ -92,6 +92,16 @@
                             </div>
 
                             <div class="col-6 form-group ">
+                                <label for="" class="form-control-label label_form_custom">Nom. Mascota </label>
+                                <div class="input-group input-group-alternative mb-4">
+                                <span class="input-group-text">
+                                    <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/mascotas/happy.png') }}" alt="">
+                                </span>
+                                <input type="text" class="form-control" id="tipo" name="tipo" placeholder="Mike Wazowski">
+                                </div>
+                            </div>
+
+                            <div class="col-6 form-group ">
                                 <label for="" class="form-control-label label_form_custom">Fecha </label>
                                 <div class="input-group input-group-alternative mb-4">
                                 <span class="input-group-text">
@@ -103,84 +113,48 @@
                             </div>
 
                             <div class="col-6 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Folio </label>
+                                <label for="" class="form-control-label label_form_custom">Raza </label>
                                 <div class="input-group input-group-alternative mb-4">
                                 <span class="input-group-text">
-                                    <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/papel.png') }}" alt="">
+                                    <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/mascotas/pets.png') }}" alt="">
                                 </span>
 
-                                <input class="form-control" type="number" id="folio" name="folio" placeholder="0000">
+                                <input class="form-control" type="text" id="folio" name="folio" placeholder="Labrador">
                                 </div>
                             </div>
 
                             <div class="col-6 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Marca </label>
+                                <label for="" class="form-control-label label_form_custom">Peso KG </label>
                                 <div class="input-group input-group-alternative mb-4">
                                 <span class="input-group-text">
-                                    <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/registrado.png') }}" alt="">
+                                    <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/mascotas/dog.png') }}" alt="">
                                 </span>
 
-                                <input type="text" class="form-control" id="marca" name="marca" placeholder="Alubike">
+                                <input type="number" class="form-control" id="marca" name="marca" placeholder="46">
                                 </div>
                             </div>
 
                             <div class="col-6 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Modelo </label>
+                                <label for="" class="form-control-label label_form_custom">Temperatura </label>
                                 <div class="input-group input-group-alternative mb-4">
                                 <span class="input-group-text">
-                                    <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/bloque-abc.png') }}" alt="">
+                                    <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/mascotas/veterinary.png') }}" alt="">
                                 </span>
 
-                                <input type="text" class="form-control" id="modelo" name="modelo" placeholder="TX100">
+                                <input type="number" class="form-control" id="modelo" name="modelo" placeholder="35">
                                 </div>
                             </div>
 
                             <div class="col-6 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Rodada </label>
+                                <label for="" class="form-control-label label_form_custom">Dirección </label>
                                 <div class="input-group input-group-alternative mb-4">
                                 <span class="input-group-text">
-                                    <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/llantas.png') }}" alt="">
+                                    <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/mascotas/direction.png') }}" alt="">
                                 </span>
 
-                                <input type="number" class="form-control" id="rodada" name="rodada" placeholder="29">
+                                <input type="text" class="form-control" id="rodada" name="rodada" placeholder="Dakota s/n, Nápoles, Benito Juárez, 03810 Ciudad de México, CDMX">
                                 </div>
                             </div>
-
-                            <div class="col-6 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Tipo </label>
-                                <div class="input-group input-group-alternative mb-4">
-                                <span class="input-group-text">
-                                    <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/bicycle.png') }}" alt="">
-                                </span>
-
-                                <select class="form-control" id="tipo" name="tipo">
-                                    <option value="BMX">BMX</option>
-                                    <option value="Ciudad">Ciudad</option>
-                                    <option value="Ruta">Ruta</option>
-                                    <option value="Electrica">Electrica</option>
-                                    <option value="MTB(Monrtain Bike)">MTB(Monrtain Bike)</option>
-                                    <option value="Niño">Niño</option>
-                                </select>
-                                </div>
-                            </div>
-
-                            <div class="col-6 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Color </label>
-                                <div class=" mb-4">
-                                <span class="input-group-text">
-                                    <input type="color" class="form-control" id="color" name="color" placeholder="">
-                                </span>
-                                </div>
-                            </div>
-                            <div class="col-6 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Color 2</label>
-                                <div class=" mb-4">
-                                <span class="input-group-text">
-                                    <input type="color" class="form-control" id="color_2" name="color_2" placeholder="">
-                                </span>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
 
@@ -188,268 +162,83 @@
 
                         <div class="row">
 
-                            <h4 class="text-center text-white mt-3">Estado de la bicicleta</h4>
+                            <h4 class="text-center text-white mt-3">Estado de la mascota</h4>
 
                             <div class="col-6 col-md-3 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Foto 1 </label>
+                                <label for="" class="form-control-label label_form_custom">Analisis </label>
                                 <input type="file" class="form-control" id="foto1" name="foto1" >
                             </div>
 
                             <div class="col-6 col-md-3 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Foto 2 </label>
+                                <label for="" class="form-control-label label_form_custom">RX </label>
                                 <input type="file" class="form-control" id="foto2" name="foto2" >
                             </div>
 
                             <div class="col-6 col-md-3 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Foto 3 </label>
+                                <label for="" class="form-control-label label_form_custom">Ultrasonido </label>
                                 <input type="file" class="form-control" id="foto3" name="foto3" >
                             </div>
 
                             <div class="col-6 col-md-3 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Foto 4 </label>
+                                <label for="" class="form-control-label label_form_custom">PDF </label>
                                 <input type="file" class="form-control" id="foto4" name="foto4" >
                             </div>
 
-                            <div class="col-12 mt-3">
+                            <label for="">
+                                <p class="text-white"><strong>Motivo de la Consulta</strong></p>
+                            </label>
 
-                                <div  id="canvasDiv">
+                            <div class="input-group form-group mb-5">
+                                <textarea class="form-control" rows="4" cols="6" value="3" id="observaciones" name="observaciones"></textarea>
+                            </div>
 
-                                    <table id="seguro" class="table text-white">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Revisión de:</th>
-                                                <th scope="col">Bueno</th>
-                                                <th scope="col">Regular</th>
-                                                <th scope="col">Malo</th>
+                            <div class="col-6 form-group ">
+                                <label for="" class="form-control-label label_form_custom">Diagnostico </label>
+                                <div class="input-group input-group-alternative mb-4">
+                                <span class="input-group-text">
+                                    <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/mascotas/stethoscope.png') }}" alt="">
+                                </span>
 
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr style="color: {{$configuracion->color_iconos_cards}}">
-                                                <th>
-                                                    Transmicion
-                                                </th>
-                                            </tr>
-
-                                                <tr>
-                                                    <th>
-                                                        Cadena
-                                                    </th>
-                                                    <td>
-                                                        <div class="bueno">
-                                                            <input class="form-check-input" value="1" type="radio" name="cadena" id="cadena">
-                                                        </div>
-                                                    </td>
-                                                    <td><div class="regular">
-                                                            <input class="form-check-input" value="2" type="radio" name="cadena" id="cadena">
-                                                        </div></td>
-                                                    <td><div class="malo">
-                                                            <input class="form-check-input" value="3" type="radio" name="cadena" id="cadena">
-                                                        </div></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th>
-                                                        Eje
-                                                    </th>
-                                                    <td><div class="bueno">
-
-                                                            <input class="form-check-input" value="1" type="radio" name="eje" id="eje">
-
-                                                        </div>
-                                                    </td>
-                                                    <td><div class="regular">
-
-                                                            <input class="form-check-input" value="2" type="radio" name="eje" id="eje">
-
-                                                        </div></td>
-                                                    <td><div class="malo">
-
-                                                            <input class="form-check-input" value="3" type="radio" name="eje" id="eje">
-
-                                                        </div></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>
-                                                        Mandos
-                                                    </th>
-                                                    <td><div class="bueno">
-
-                                                            <input class="form-check-input" value="1" type="radio" name="mandos" id="mandos">
-
-                                                        </div>
-                                                    </td>
-                                                    <td><div class="regular">
-
-                                                            <input class="form-check-input" value="2" type="radio" name="mandos" id="mandos">
-
-                                                        </div></td>
-                                                    <td><div class="malo">
-
-                                                            <input class="form-check-input" value="3" type="radio" name="mandos" id="mandos">
-
-                                                        </div></td>
-                                                </tr>
-
-                                                <tr style="color: {{$configuracion->color_iconos_cards}}">
-                                                    <th>
-                                                        Frenos (Zapata y/o Balata)
-                                                    </th>
-                                                </tr>
-
-                                                <tr>
-                                                    <th>
-                                                        Delanteros
-                                                    </th>
-                                                    <td><div class="bueno">
-
-                                                            <input class="form-check-input" value="1" type="radio" name="frenos_d" id="frenos_d">
-
-                                                        </div>
-                                                    </td>
-                                                    <td><div class="regular">
-
-                                                            <input class="form-check-input" value="2" type="radio" name="frenos_d" id="frenos_d">
-
-                                                        </div></td>
-                                                    <td><div class="malo">
-
-                                                            <input class="form-check-input" value="3" type="radio" name="frenos_d" id="frenos_d">
-
-                                                        </div></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th>
-                                                        Traseros
-                                                    </th>
-                                                    <td><div class="bueno">
-
-                                                            <input class="form-check-input" value="1" type="radio" name="frenos_t" id="frenos_t">
-
-                                                        </div>
-                                                    </td>
-                                                    <td><div class="regular">
-
-                                                            <input class="form-check-input" value="2" type="radio" name="frenos_t" id="frenos_t">
-
-                                                        </div></td>
-                                                    <td><div class="malo">
-
-                                                            <input class="form-check-input" value="3" type="radio" name="frenos_t" id="frenos_t">
-
-                                                        </div></td>
-                                                </tr>
-
-                                                <tr style="color: {{$configuracion->color_iconos_cards}}">
-                                                    <th>
-                                                        Llantas
-                                                    </th>
-                                                </tr>
-
-                                                <tr>
-                                                    <th>
-                                                        Delanteras
-                                                    </th>
-                                                    <td><div class="bueno">
-
-                                                            <input class="form-check-input" value="1" type="radio" name="llanta_d" id="llanta_d">
-
-                                                        </div>
-                                                    </td>
-                                                    <td><div class="regular">
-
-                                                            <input class="form-check-input" value="2" type="radio" name="llanta_d" id="llanta_d">
-
-                                                        </div></td>
-                                                    <td><div class="malo">
-
-                                                            <input class="form-check-input" value="3" type="radio" name="llanta_d" id="llanta_d">
-
-                                                        </div></td>
-                                                </tr>
-
-                                                <tr>
-                                                    <th>
-                                                        Traseras
-                                                    </th>
-                                                    <td><div class="bueno">
-
-                                                            <input class="form-check-input" value="1" type="radio" name="llanta_t" id="llanta_t">
-
-                                                        </div>
-                                                    </td>
-                                                    <td><div class="regular">
-
-                                                            <input class="form-check-input" value="2" type="radio" name="llanta_t" id="llanta_t">
-
-                                                        </div></td>
-                                                    <td><div class="malo">
-
-                                                            <input class="form-check-input" value="3" type="radio" name="llanta_t" id="llanta_t">
-
-                                                        </div></td>
-                                                </tr>
-
-                                                <tr style="color: {{$configuracion->color_iconos_cards}}">
-                                                    <th>
-                                                        Camaras
-                                                    </th>
-                                                </tr>
-                                                <tr>
-                                                    <th>
-                                                        Delantera
-                                                    </th>
-                                                    <td><div class="bueno">
-
-                                                            <input class="form-check-input" value="1" type="radio" name="camara_d" id="camara_d">
-
-                                                        </div>
-                                                    </td>
-                                                    <td><div class="regular">
-
-                                                            <input class="form-check-input" value="2" type="radio" name="camara_d" id="camara_d">
-
-                                                        </div></td>
-                                                    <td><div class="malo">
-
-                                                            <input class="form-check-input" value="3" type="radio" name="camara_d" id="camara_d">
-
-                                                        </div></td>
-                                                </tr>
-                                                <tr>
-                                                    <th>
-                                                        Traseras
-                                                    </th>
-                                                    <td><div class="bueno">
-
-                                                            <input class="form-check-input" value="1" type="radio" name="camara_t" id="camara_t">
-
-                                                        </div>
-                                                    </td>
-                                                    <td><div class="regular">
-
-                                                            <input class="form-check-input" value="2" type="radio" name="camara_t" id="camara_t">
-
-                                                        </div></td>
-                                                    <td><div class="malo">
-
-                                                            <input class="form-check-input" value="3" type="radio" name="camara_t" id="camara_t">
-
-                                                        </div></td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-
-                                    <label for="">
-                                        <p class="text-white"><strong>Observaciones</strong></p>
-                                    </label>
-
-                                    <div class="input-group form-group mb-5">
-                                        <textarea class="form-control" rows="4" cols="6" value="3" id="observaciones" name="observaciones"></textarea>
-                                    </div>
+                                <input type="text" class="form-control" id="camaras" name="camaras" placeholder="">
                                 </div>
+                            </div>
 
+                            <div class="col-6 form-group ">
+                                <label for="" class="form-control-label label_form_custom">Indicaciones </label>
+                                <div class="input-group input-group-alternative mb-4">
+                                <span class="input-group-text">
+                                    <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/mascotas/medical-report.png') }}" alt="">
+                                </span>
+
+                                <input type="text" class="form-control" id="mandos" name="mandos" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="col-6 form-group ">
+                                <label for="" class="form-control-label label_form_custom">Tratamiento </label>
+                                <div class="input-group input-group-alternative mb-4">
+                                <span class="input-group-text">
+                                    <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/mascotas/veterinary (2).png') }}" alt="">
+                                </span>
+
+                                <input type="text" class="form-control" id="eje" name="eje" placeholder="">
+                                </div>
+                            </div>
+
+                            <div class="col-6 form-group ">
+                                <label for="" class="form-control-label label_form_custom">Medico </label>
+                                <div class="input-group input-group-alternative mb-4">
+                                    <span class="input-group-text" style="border-radius: 16px 0 0px 0px!important;">
+                                        <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/mascotas/veterinary (1).png') }}" alt="">
+                                    </span>
+                                    <select class="form-control cliente" data-toggle="select" id="sprock" name="sprock">
+                                        <option value="">Seleccionar medico</option>
+                                        @foreach ($user as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
                             </div>
 
                         </div>
@@ -458,26 +247,9 @@
 
                     <div class="tab-pane fade" id="nav-producto" role="tabpanel" aria-labelledby="nav-producto-tab" tabindex="0">
 
-                        <h4 class="text-center text-white mt-3">Detallar Servicioo</h4>
+                        <h4 class="text-center text-white mt-3">Pago</h4>
 
                         <div class="row">
-
-                            <div class="col-12 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Seleccionar Servicio</label>
-                                <div class="input-group input-group-alternative mb-4">
-                                    <span class="input-group-text" style="border-radius: 16px 0 0px 0px!important;">
-                                        <img class="img_icon_form" src="{{ asset('assets/admin/img/icons/reparar.png') }}" alt="">
-                                    </span>
-                                    <select class="form-control " data-toggle="select" id="servicio" name="servicio">
-                                        <option value="">Seleccionar Servicio</option>
-                                        <option value="Servicio_Completo">Servicio Completo</option>
-                                        <option value="Medio_Servicio">Medio Servicio</option>
-                                        <option value="Ajuste">Ajuste</option>
-                                        <option value="Armado">Armado</option>
-                                        <option value="Reparacion">Reparacion</option>
-                                    </select>
-                                </div>
-                            </div>
 
                             <div class="col-6 form-group ">
                                 <label for="" class="form-control-label label_form_custom">Saldo a favor</label>
@@ -498,14 +270,6 @@
                                     <input type="number" class="form-control" id="precio_servicio" name="precio_servicio" >
                                 </div>
                             </div>
-
-                            <div class="col-12 form-group ">
-                                <label for="" class="form-control-label label_form_custom">Componentes a cotizar  o conseguir</label>
-                                <div class="input-group input-group-alternative mb-4">
-                                <textarea name="" id="" cols="35" rows="5"></textarea>
-                                </div>
-                            </div>
-
                         </div>
 
                     </div>
@@ -521,17 +285,17 @@
                     <div class="nav nav-tabs" id="nav-tab" role="tablist" style="--bs-nav-tabs-border-width: 0px!important;">
                       <button class="nav-link active" id="nav-detalles-tab" data-bs-toggle="tab" data-bs-target="#nav-detalles" type="button" role="tab" aria-controls="nav-detalles" aria-selected="true">
                         <img class="img_icon_form mt-2" src="{{ asset('assets/admin/img/icons/lupa_list.png') }}" alt="">
-                        <p class="text-center d-inline-block " style="margin-bottom: 0rem!important;">Detalles</p>
+                        <p class="text-center d-inline-block " style="margin-bottom: 0rem!important;">Mascota</p>
                       </button>
 
                       <button class="nav-link" id="nav-Estado-tab" data-bs-toggle="tab" data-bs-target="#nav-Estado" type="button" role="tab" aria-controls="nav-Estado" aria-selected="false">
                         <img class="img_icon_form mt-2" src="{{ asset('assets/admin/img/icons/evaluacion.png') }}" alt="">
-                        <p class="text-center d-inline-block " style="margin-bottom: 0rem!important;">Estado</p>
+                        <p class="text-center d-inline-block " style="margin-bottom: 0rem!important;">Consulta</p>
                       </button>
 
                       <button class="nav-link" id="nav-producto-tab" data-bs-toggle="tab" data-bs-target="#nav-producto" type="button" role="tab" aria-controls="nav-producto" aria-selected="false">
-                        <img class="img_icon_form mt-2" src="{{ asset('assets/admin/img/icons/manivela.png') }}" alt="">
-                        <p class="text-center d-inline-block " style="margin-bottom: 0rem!important;">Servicio</p>
+                        <img class="img_icon_form mt-2" src="{{ asset('assets/admin/img/icons/lista-de-verificacion.png') }}" alt="">
+                        <p class="text-center d-inline-block " style="margin-bottom: 0rem!important;">Documento</p>
                       </button>
 
                     </div>

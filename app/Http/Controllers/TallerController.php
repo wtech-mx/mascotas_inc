@@ -28,9 +28,10 @@ class TallerController extends Controller
     public function create()
     {
         $cliente = Cliente::get();
+        $user = User::get();
         $productos = WooCommerce::all('products');
 
-        return view('admin.servicios.create',compact('cliente','productos'));
+        return view('admin.servicios.create',compact('cliente','productos', 'user'));
     }
 
     public function store_product(Request $request){
@@ -130,12 +131,6 @@ class TallerController extends Controller
         }
         $taller->cadena = $request->get('cadena');
         $taller->eje = $request->get('eje');
-        $taller->llanta_d = $request->get('llanta_d');
-        $taller->llanta_t = $request->get('llanta_t');
-        $taller->frenos_d = $request->get('frenos_d');
-        $taller->frenos_t = $request->get('frenos_t');
-        $taller->camara_t = $request->get('camara_t');
-        $taller->camara_d = $request->get('camara_d');
         $taller->folio = $request->get('folio');
         $taller->observaciones = $request->get('observaciones');
         $taller->mandos = $request->get('mandos');
@@ -143,11 +138,6 @@ class TallerController extends Controller
         $taller->subtotal = $request->get('subtotal');
         $taller->estatus = 0;
         $taller->precio_servicio = $request->get('precio_servicio');
-        if($request->get('subtotal') == NULL){
-            $taller->total = $request->get('total');
-        }else{
-            $taller->total = $request->get('precio_servicio') - $request->get('subtotal');
-        }
         $taller->save();
 
         Alert::success('Servicio Guardado', 'Se ha guardado con exito');
