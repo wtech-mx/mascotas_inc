@@ -150,174 +150,22 @@ class ScannerController extends Controller
     public function search_product(Request $request){
 
         if($request->ajax()){
+
             $output="";
+
             $products = Product::where('sku', '=', $request->search)->first();
             // $cliente = $products->Cliente()->with('usuario')->get();
-
              $prb = $prb = $products['meta_data'];
              //dd($products);
-            if($products['meta_data'][5]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][5]->value;
-                $nombre_del_proveedor = $products['meta_data'][6]->value;
-                $costo = $products['meta_data'][7]->value;
-                $clave_mayorista = $products['meta_data'][8]->value;
-
-            }elseif($products['meta_data'][6]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][6]->value;
-                $nombre_del_proveedor = $products['meta_data'][7]->value;
-                $costo = $products['meta_data'][8]->value;
-                $clave_mayorista = $products['meta_data'][9]->value;
-
-            }elseif($products['meta_data'][7]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][7]->value;
-                $nombre_del_proveedor = $products['meta_data'][8]->value;
-                $costo = $products['meta_data'][9]->value;
-                $clave_mayorista = $products['meta_data'][10]->value;
-
-            }elseif($products['meta_data'][16]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][16]->value;
-                $nombre_del_proveedor = $products['meta_data'][18]->value;
-                $costo = $products['meta_data'][20]->value;
-                $clave_mayorista = $products['meta_data'][22]->value;
-
-            }elseif($products['meta_data'][17]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][17]->value;
-                $nombre_del_proveedor = $products['meta_data'][19]->value;
-                $costo = $products['meta_data'][21]->value;
-                $clave_mayorista = $products['meta_data'][23]->value;
-
-            }elseif($products['meta_data'][18]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][18]->value;
-                $nombre_del_proveedor = $products['meta_data'][20]->value;
-                $costo = $products['meta_data'][22]->value;
-                $clave_mayorista = $products['meta_data'][24]->value;
-
-            }elseif($products['meta_data'][19]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][19]->value;
-                $nombre_del_proveedor = $products['meta_data'][21]->value;
-                $costo = $products['meta_data'][23]->value;
-                $clave_mayorista = $products['meta_data'][25]->value;
-
-            }elseif($products['meta_data'][20]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][20]->value;
-                $nombre_del_proveedor = $products['meta_data'][22]->value;
-                $costo = $products['meta_data'][24]->value;
-                $clave_mayorista = $products['meta_data'][26]->value;
-
-            }elseif($products['meta_data'][21]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][21]->value;
-                $nombre_del_proveedor = $products['meta_data'][23]->value;
-                $costo = $products['meta_data'][25]->value;
-                $clave_mayorista = $products['meta_data'][27]->value;
-
-            }elseif($products['meta_data'][22]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][22]->value;
-                $nombre_del_proveedor = $products['meta_data'][24]->value;
-                $costo = $products['meta_data'][26]->value;
-                $clave_mayorista = $products['meta_data'][28]->value;
-
-            }elseif($products['meta_data'][23]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][23]->value;
-                $nombre_del_proveedor = $products['meta_data'][25]->value;
-                $costo = $products['meta_data'][27]->value;
-                $clave_mayorista = $products['meta_data'][29]->value;
-
-            }elseif($products['meta_data'][24]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][24]->value;
-                $nombre_del_proveedor = $products['meta_data'][26]->value;
-                $costo = $products['meta_data'][28]->value;
-                $clave_mayorista = $products['meta_data'][30]->value;
-
-            }elseif($products['meta_data'][25]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][25]->value;
-                $nombre_del_proveedor = $products['meta_data'][27]->value;
-                $costo = $products['meta_data'][29]->value;
-                $clave_mayorista = $products['meta_data'][31]->value;
-
-            }elseif($products['meta_data'][26]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][26]->value;
-                $nombre_del_proveedor = $products['meta_data'][28]->value;
-                $costo = $products['meta_data'][30]->value;
-                $clave_mayorista = $products['meta_data'][32]->value;
-
-            }elseif($products['meta_data'][27]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][27]->value;
-                $nombre_del_proveedor = $products['meta_data'][29]->value;
-                $costo = $products['meta_data'][31]->value;
-                $clave_mayorista = $products['meta_data'][33]->value;
-
-            }elseif($products['meta_data'][28]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][28]->value;
-                $nombre_del_proveedor = $products['meta_data'][30]->value;
-                $costo = $products['meta_data'][32]->value;
-                $clave_mayorista = $products['meta_data'][34]->value;
-
-            }elseif($products['meta_data'][29]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][29]->value;
-                $nombre_del_proveedor = $products['meta_data'][31]->value;
-                $costo = $products['meta_data'][33]->value;
-                $clave_mayorista = $products['meta_data'][35]->value;
-
-            }elseif($products['meta_data'][30]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][30]->value;
-                $nombre_del_proveedor = $products['meta_data'][32]->value;
-                $costo = $products['meta_data'][34]->value;
-                $clave_mayorista = $products['meta_data'][36]->value;
-
-            }elseif($products['meta_data'][31]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][31]->value;
-                $nombre_del_proveedor = $products['meta_data'][33]->value;
-                $costo = $products['meta_data'][35]->value;
-                $clave_mayorista = $products['meta_data'][37]->value;
-
-            }elseif($products['meta_data'][32]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][32]->value;
-                $nombre_del_proveedor = $products['meta_data'][34]->value;
-                $costo = $products['meta_data'][36]->value;
-                $clave_mayorista = $products['meta_data'][38]->value;
-
-            }elseif($products['meta_data'][33]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][33]->value;
-                $nombre_del_proveedor = $products['meta_data'][35]->value;
-                $costo = $products['meta_data'][37]->value;
-                $clave_mayorista = $products['meta_data'][39]->value;
-
-            }elseif($products['meta_data'][34]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][34]->value;
-                $nombre_del_proveedor = $products['meta_data'][36]->value;
-                $costo = $products['meta_data'][38]->value;
-                $clave_mayorista = $products['meta_data'][40]->value;
-
-            }elseif($products['meta_data'][35]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][35]->value;
-                $nombre_del_proveedor = $products['meta_data'][37]->value;
-                $costo = $products['meta_data'][39]->value;
-                $clave_mayorista = $products['meta_data'][41]->value;
-            }elseif($products['meta_data'][35]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][35]->value;
-                $nombre_del_proveedor = $products['meta_data'][37]->value;
-                $costo = $products['meta_data'][39]->value;
-                $clave_mayorista = $products['meta_data'][41]->value;
-            }elseif($products['meta_data'][36]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][36]->value;
-                $nombre_del_proveedor = $products['meta_data'][38]->value;
-                $costo = $products['meta_data'][40]->value;
-                $clave_mayorista = $products['meta_data'][42]->value;
-            }elseif($products['meta_data'][37]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][37]->value;
-                $nombre_del_proveedor = $products['meta_data'][39]->value;
-                $costo = $products['meta_data'][41]->value;
-                $clave_mayorista = $products['meta_data'][43]->value;
-            }elseif($products['meta_data'][114]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][114]->value;
-                $nombre_del_proveedor = $products['meta_data'][115]->value;
-                $costo = $products['meta_data'][13]->value;
-                $clave_mayorista = $products['meta_data'][15]->value;
-            }elseif($products['meta_data'][118]->key == "id_proveedor"){
-                $id_proveedor = $products['meta_data'][118]->value;
-                $nombre_del_proveedor = $products['meta_data'][119]->value;
-                $costo = $products['meta_data'][114]->value;
-                $clave_mayorista = $products['meta_data'][120]->value;
+            if($products['meta_data'][0]->key == "id_proveedor"){
+                $id_proveedor = $products['meta_data'][0]->value;
+                $nombre_del_proveedor = $products['meta_data'][1]->value;
+                $costo = $products['meta_data'][2]->value;
+                $margen = $products['meta_data'][3]->value;
+                $utilidad = $products['meta_data'][4]->value;
+                $costo_variable = $products['meta_data'][5]->value;
+                $subtotal = $products['meta_data'][6]->value;
+                $iva = $products['meta_data'][7]->value;
 
             }
 
@@ -339,10 +187,30 @@ class ScannerController extends Controller
                 $costo = 0;
               }
 
-              if(isset($clave_mayorista)){
-                // tu código aquí si $clave_mayorista está definido
+              if(isset($margen)){
+                // tu código aquí si $margen está definido
               } else {
-                $clave_mayorista = "";
+                $margen = 0;
+              }
+              if(isset($utilidad)){
+                // tu código aquí si $utilidad está definido
+              } else {
+                $utilidad = 0;
+              }
+              if(isset($costo_variable)){
+                // tu código aquí si $costo_variable está definido
+              } else {
+                $costo_variable = 0;
+              }
+              if(isset($subtotal)){
+                // tu código aquí si $subtotal está definido
+              } else {
+                $subtotal = 0;
+              }
+              if(isset($iva)){
+                // tu código aquí si $iva está definido
+              } else {
+                $iva = 0;
               }
 
             if($products){
@@ -395,20 +263,36 @@ class ScannerController extends Controller
                             '<input type="number" class="form-control" id="stock_quantity" name="stock_quantity" value="'.$products['stock_quantity'].'">'.
                             '</div>'.
                             '<div class="col-6">'.
-                            '<label for="costo" class="form-label">costo</label>'.
-                            '<input type="text" class="form-control" id="costo" name="costo" value="'.$costo.'">'.
-                            '</div>'.
-                            '<div class="col-6">'.
-                            '<label for="nombre_del_proveedor" class="form-label">Proveedor</label>'.
-                            '<input type="text" class="form-control" id="nombre_del_proveedor" name="nombre_del_proveedor" value="'.$nombre_del_proveedor.'">'.
-                            '</div>'.
-                            '<div class="col-6">'.
                             '<label for="id_proveedor" class="form-label">Id Prove</label>'.
                             '<input type="text" class="form-control" id="id_proveedor" name="id_proveedor" value="'.$id_proveedor.'">'.
                             '</div>'.
                             '<div class="col-6">'.
-                            '<label for="clave_mayorista" class="form-label">Mayoreo</label>'.
-                            '<input type="text" class="form-control" id="clave_mayorista" name="clave_mayorista" value="'.$clave_mayorista.'">'.
+                            '<label for="proveedor" class="form-label">Proveedor</label>'.
+                            '<input type="text" class="form-control" id="proveedor" name="proveedor" value="'.$nombre_del_proveedor.'">'.
+                            '</div>'.
+                            '<div class="col-3">'.
+                            '<label for="costo" class="form-label">costo</label>'.
+                            '<input type="text" class="form-control" id="costo" name="costo" value="'.$costo.'">'.
+                            '</div>'.
+                            '<div class="col-3">'.
+                            '<label for="margen" class="form-label">margen</label>'.
+                            '<input type="text" class="form-control" id="margen" name="margen" value="'.$margen.'">'.
+                            '</div>'.
+                            '<div class="col-3">'.
+                            '<label for="utilidad" class="form-label">utilidad</label>'.
+                            '<input type="text" class="form-control" id="utilidad" name="utilidad" value="'.$utilidad.'">'.
+                            '</div>'.
+                            '<div class="col-3">'.
+                            '<label for="costo_variable" class="form-label">costo_variable</label>'.
+                            '<input type="text" class="form-control" id="costo_variable" name="costo_variable" value="'.$costo_variable.'">'.
+                            '</div>'.
+                            '<div class="col-3">'.
+                            '<label for="subtotal" class="form-label">subtotal</label>'.
+                            '<input type="text" class="form-control" id="subtotal" name="subtotal" value="'.$subtotal.'">'.
+                            '</div>'.
+                            '<div class="col-3">'.
+                            '<label for="iva" class="form-label">iva</label>'.
+                            '<input type="text" class="form-control" id="iva" name="iva" value="'.$iva.'">'.
                             '</div>'.
                             '<button id="save-btn" type="submit" class="btn btn-primary mt-2">Guardar cambios</button>'.
                             '<button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Cerrar</button>'.
